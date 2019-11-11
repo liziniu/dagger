@@ -160,7 +160,7 @@ def collect_many_trajectory(model, env, nbatch=50, trajectory_length=1000):
 def main(path):
     assert 'ppo' in path
     env_id = path.split('-')[1] + '-' + path.split('-')[2]
-    logdir = osp.join('dataset', env_id, datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S-%f"))
+    logdir = osp.join('dataset', '{}-{}'.format(env_id, datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S-%f")))
     os.makedirs(logdir, exist_ok=True)
     logger.configure(dir=logdir)
 
